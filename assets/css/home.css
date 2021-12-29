@@ -1,0 +1,263 @@
+body{
+    margin: 0;
+    display: flex;
+    background-color: #DDE0E1;
+    font-family: sans-serif;
+    color: rgb(68, 68, 68);
+    justify-content: center;
+}
+
+/* Outer Div containing whole application  */
+#outer-container{
+    width: 60%;
+    height: auto;
+}
+
+/* Header image */
+header{
+    box-shadow: 2px 30px 20px 1px black;
+    height: 45px;
+    background-image: url(/images/todo_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Application Container */
+#container{
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    top: 0rem;
+    padding-top: 1rem;
+    box-shadow: 2px 30px 15px 1px black;
+
+}
+
+/* Sketch tool for construction */
+.sketch{
+    border: 1px solid black;
+}
+
+/* Horizontal Line */
+hr{
+    width: 95%;
+}
+
+
+/* TODO Heading */
+#heading{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+/* Table style */
+table, th, td{
+    border: 1px solid grey;;
+    padding: 10px;
+}
+table{
+    width: 95%;
+    margin-left: 2.5%;
+    border-collapse: collapse;
+}
+
+table label, input, select{
+    margin: 0.3rem 0 0.3rem 2rem;
+    
+}
+
+table label{
+    font-weight: 600;
+}
+
+table select, input{
+    border: 0;
+    font-size: 1.1rem;
+    color: rgb(110, 110, 110);
+}
+
+#description{
+    width: 90%;
+    height: 1.8rem;
+    padding: 4px;
+}
+
+/* Task Details Input */
+table input{
+    border: 0;
+    font-size: 1.1rem;
+}
+
+/* Button styling */
+button{
+    color: white;
+    padding: 0.7rem;
+    border: 0;
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+/* Color Classes */
+.blue-bg{
+    background-color: rgb(55, 124, 202);
+}
+
+.red-bg{
+    background-color: red;
+}
+
+
+/* Styling Buttons */
+#addButton{
+    border-radius: 5px;
+    position: relative;
+    top: 2.15rem;
+    left: 13%;
+    width: 12rem;
+}
+
+#deleteButton{
+    display: inline-block;
+    border-radius: 5px;
+    position: relative;
+    bottom: 1.7rem;
+    left: 55%;
+}
+
+#addButton:hover{
+    box-shadow: 0px 0px 4px 2px grey;
+}
+
+#deleteButton:hover{
+    box-shadow: 0px 0px 4px 2px grey;
+}
+
+#addButton:active {
+    animation: shakeY;
+    animation-duration: 2s;
+}
+
+#deleteButton:active {
+    animation: shakeY;
+    animation-duration: 2s;
+}
+
+
+/* Task Card Styling */
+#task-list{
+    list-style: none;
+    margin-top: -13px;
+}
+
+.task-card{
+    margin-left: -2.6rem;
+    padding: 0.5rem 0 0.5rem 0;
+    height: 3.8rem;
+}
+
+input[type=checkbox]{
+    position: relative;
+    left: 0rem;
+    top: 0.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.info-div{
+    display: inline-block;
+    position: relative;
+    left: 0.5rem;
+    top: 0rem;
+    width: 70%;
+}
+
+.descriptionLabel{
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.dateLabelC{
+    display: inline-block;
+    font-size: 0.9rem;
+    color: grey;
+    position: relative;
+    left: 7.5%;
+    top: -5%;
+    width: 10rem;
+}
+
+
+.categoryLabelC{
+    display: inline-block;
+    width: auto;
+    position: relative;
+    top: 0.6rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 14px;
+    color: white;
+    background-color: black;
+    width: 5rem;
+    text-align: center;
+
+}
+
+.priorityLabelC{
+    display: inline-block;
+    position: relative;
+    left: 10%;
+    top: -5%;
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.star{
+    color: rgb(250, 179, 0);
+}
+
+
+input[type=checkbox]:checked ~ div label{
+    text-decoration: line-through;
+    color: rgb(162, 202, 162);
+}
+
+
+/* Media Queries for Responsive design */
+
+@media screen and (max-width: 965px){
+    #outer-container{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 720px){
+    #outer-container{
+        width: 100%;
+    }
+}
+
+/* Mobile View Optimization */
+@media screen and (max-width: 575px){
+    html{
+        font-size: 13px;
+    }
+    table label, input, select{
+        margin: 0;
+        
+    }
+    #container{
+        top: -2px;
+    }
+    #addButton{
+       left: 7%;
+    }
+    #deleteButton{
+        left: 52%;
+    }
+}

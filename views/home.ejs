@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <!-- Viewport Meta Tag -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Animate.css Link Tag -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <div id="outer-container">
+         <!-- Header for image    -->
+        <header></header>
+        <div id="container">
+        <!-- Heading -->
+        <h1 id="heading">
+            <i class="fas fa-calendar-check" style="color: rgb(97, 187, 97);"></i>
+            <%= title %>
+        </h1>
+
+        <!-- Form for task details -->
+        <form action="/add-task" method="POST">
+            <table>
+                <tr>
+                    <td colspan="3">
+                     <!-- Description Input    -->
+                    <label for="description">DESCRIPTION</label><br>
+                    <input type="text" id="description" name="description" placeholder="What do you need to do?">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Category Input    -->
+                        <label for="category">CATEGORY</label><br>
+                        <select id="category" name="category">
+                            <option value="Personal">Personal</option>
+                            <option value="School">School</option>
+                            <option value="Work">Work</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Due-Date Input  -->
+                        <label for="duedate">DUE DATE</label><br>
+                        <input type="date" id="duedate" name="duedate">
+                    </td>
+                    <td>
+                        <!-- Priority Input    -->
+                        <label for="priority">PRIORITY</label><br>
+                        <select id="priority" name="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            
+            <!-- Add Task Button -->
+            <button id="addButton" type="submit" class="blue-bg">
+                <i class="fas fa-plus"></i>
+                ADD TASK
+            </button>
+        </form>
+
+        <!-- Form for selecting task to be delete -->
+        <!-- Tasks Cards -->
+        <form action="/delete-tasks" method="POST">
+            <!-- Delete Task Button -->
+            <button id="deleteButton" type="submit" class="red-bg">
+                <i class="fas fa-plus"></i>
+                DELETE TASKS
+            </button>
+            <hr>
+
+            <!-- List of tasks cards -->
+            <ul id="task-list"> 
+                <!-- Iterating over each task in the database   -->
+                <% for(let i of task_list) { %>
+                    <li class="task-card">
+                        <input type="checkbox" id="<%= i._id %>" name="<%= i._id %>">
+                        <!-- Description -->
+                        <div class="info-div">
+                            <label class="descriptionLabel" for="<%= i._id %>"><%= i.description %></label>
+                        </div>
+                        <!-- Category -->
+                        <div class="categoryLabelC">
+                            <label class="categoryLabel" for="<%= i._id %>"><%= i.category %></label>
+                        </div>
+                        <!-- Due-date -->
+                        <div class="dateLabelC">
+                            <i class="fas fa-calendar-alt"></i>
+                            <label class="dateLabel" for="<%= i._id %>">
+                                <%= i.duedate %>
+                            </label>
+                        </div>
+                        <!-- Priority -->
+                        <div class="priorityLabelC">
+                            <label class="priorityLabel" for="<%= i._id %>">
+                                <%= i.priority %>
+                            </label>
+                        </div>
+                        <hr>
+                    </li>
+                
+                <% } %>    
+            </ul>
+        </form>
+        </div>
+        </div>
+
+        <!-- Call to Javascript file -->
+        <script type="text/javascript" src="/javascript/home.js"></script>
+    </body>
+</html>
